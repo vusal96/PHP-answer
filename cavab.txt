@@ -1,0 +1,150 @@
+1) &$var yazilisindaki & isaresi o demekdir ki $a = & $b deyisenleri bir birine eynile beraberdir,
+ ne sag teref sol terefe ne de sol teref saga menimsedilmir.
+2) $ isaresi deyisenin (yeni $a) qarsisina qoyulduda onun hem deyerini qebul edir hem de onu deyerini menimsiyir.
+3) iiset() funksiyasi boolen deyeri dondurur
+4) serialize function kompleks datalari strinq cevirir ki bu da datanin saxlanmasi ve oturumesi ucun elverislidir
+5) cavab 1. cunki bar function $a bi gormur, ona gore de NULL qaytarir. foo function da onu 1 vahid artirib 1 qaytarir.
+6) <?php 
+	$juice = "apple";
+	echo "&quot He drank some $juice juice. &quot"
+?>
+7) unset() butun deyerleri unset edir dayandirir. unlink ise verilmis fayllari silir, dayandirir.
+8) 
+9) 
+10) boolen (true) olacaq.birinciye ustunluk verilir.Assign edende saqdan sola gedir.
+11) 
+12) cavab 7. 0-la basladigi ucun 8-lik say sistemindedir, Octal  = 16 Decimal= 1×8¹+6×8° = 14 14/2=7
+13) static keyword method ve class-lara tetbiq olunur.
+static olan property class daxilinde ve ya her hansisa bir yerde deyisdirildike onun addresi de deyisdirilmis olur.
+Bu o demekdirki onun deyeri de deyisir.
+14) final keyword-u ancaq class ve methodlara tetbiq oluna biler.Bu keyword yazilan class ve ya method  basqa clasa extend oluna bilmez.
+15) constuct yalniz public olmalidir. Eks hallarda error verir.
+16) Traitslere hazir kod toplusu kimi baxmaq olar. Onlari istediyimiz yerde istifade ede bilerik.
+17)   class mySQL{
+
+  var $host;
+  var $username;
+  var $password;
+  var $db;
+
+  public function connect($set_host, $set_username, $set_password, $set_db){
+    $this->host = $set_host;
+    $this->username = $set_username;
+    $this->password = $set_password;
+    $this->db = $set_db;
+
+    mysql_connect("$host", "$username", "$password")or die("cannot connect");
+    mysql_select_db("$db")or die("cannot select DB");
+  }
+
+}
+
+$connect = new mySQL();
+$connect -> connect('localhost', 'user', 'pass', 'db1');
+
+18) 
+19) <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<?php
+		$number1 = 12;
+		$number2 = 15;
+
+		$islem ='*';
+
+		function hesabla($number1, $number2, $islem){
+
+			switch ($islem) {
+				case '*':
+					echo $number1 * $number2;
+					break;
+
+				case '/':
+						
+				if ($number2 == 0) {
+					echo 'Qadagandir';
+
+				}
+				else{
+					echo $number1 / $number2;
+				}
+				break;
+
+				case '+':
+					echo $number1 + $number2;
+					break;
+					
+				case '-':
+					echo $number1 - $number2;
+					break;
+					
+				default:
+					
+					break;
+			}
+
+		}
+		hesabla(10,0,'/')
+	?>
+
+</body>
+</html>
+
+20) Serialize funksiyasini cagiran zaman  birinci obyektde _sleep adli funksiyanin olub-olmadigini yoxlayir. _sleep funksiyasi hec vaxt parametr qebul etmez ve yalniz serialize()
+cagirilanda isleyir, bir array qaytarir, haradaki serialize yalniz qeyd olunan array elementleri uzerinde isleyir , qalanlar ise silinir. Lazim olmayan  fayllarin saxlanmasina ve istifadesine ehtiyyac qalmir._wakeup() ise unserialize() funksiyasi ucun oxsar isleri gorur.
+
+21) session_unregister() global deyiskeni oldugu sessiondan unregister edir.True ya da False qaytarir.
+session_unset() butun  session-lari unset edir.
+session_unset() hec bir deyer qaytarmir ve hec bir deyer qebul etmir yeni void-dir.
+Bu funksiya butun current sessionlari unset ede biler.
+
+22) 
+23) 
+24) $target_dir = "images/";
+$target_file = $target_dir . date('dmYGis') . basename($_FILES["sekil"]["name"]);
+
+$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+echo $imageFileType;
+
+if ($imageFileType == 'jpg' || $imageFileType == 'png'|| $imageFileType == 'gif') {
+    if ($_FILES['sekil']['size'] < 500*1024) {
+        move_uploaded_file($_FILES["sekil"]["tmp_name"], $target_file);
+    } else {
+        echo 'olçu boyukdu max 500 kb';
+    }
+} else {
+    echo 'bu fayl ' . $imageFileType . 'yaramir';
+}
+
+25)
+"." strigleri birlesdirir
+$a="bir"."iki";
+ 
+$b="uc"; 
+echo $b.="iki"; 
+yeni ".=" ikiye ucu birlesdirir
+
+26) 
+getimagesize('path file') funksiyasi vasitesi ile seklin width ve heighti barede melumat ala bilerik, eger var_dump(getimagesize(seklinadi.jpg)); yazsaq bize array seklinde melumat qayidar.
+
+27) PHP-de errorlarin 4 novu vardir.Bunlar asaqidakilardi:
+1)Parse errors(syntax errors)
+2)Fatal errors
+3)Warning errors
+4)Notice errors
+
+1.Parse errors
+moterizelerin baglanmasi ve ya noqteler falan yaddan cixanda bas verir
+
+2.Fatal errors
+Fatal error o PHP-nin anlamadigi bir kod yazilanda olur, sistem dayanir.
+
+3.Warning errors
+itirilmis fayl olduqda
+
+4.Notice errors
+Bu errorlar adeten undefined variable-a kecid etmek isdedikde ve ya onu ekrana cixarmaq isdedikde istifade olunur.
